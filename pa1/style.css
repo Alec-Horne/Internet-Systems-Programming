@@ -1,0 +1,175 @@
+nav { 
+	position: fixed; 
+	width: 100%;
+	z-index: 999;
+}
+
+ul {
+	list-style-type: none;
+    margin: 0;
+    padding: 0;
+    overflow: hidden;
+    background-color: #333;
+    top: 0;
+	left: 0;
+    width: 100%;
+	font-family: CaviarDreams;
+	z-index: 999;
+}
+
+li {
+    float: left;
+	border-right: 1px solid #bbb;
+}
+
+li:nth-last-child(2) {
+    border-right: none;
+}
+
+li a, .dropbtn {
+    display: inline-block;
+    color: white;
+    text-align: center;
+    padding: 14px 16px;
+    text-decoration: none;
+}
+
+li a:hover, .dropdown:hover .dropbtn {
+    background-color: #999999;
+}
+
+li.dropdown {
+    display: inline-block;
+}
+
+.dropdown-content {
+    display: none;
+    position: absolute;
+    background-color: #333;
+    min-width: 160px;
+    box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+}
+
+.dropdown-content a {
+    color: white;
+    padding: 12px 16px;
+    text-decoration: none;
+    display: block;
+    text-align: left;
+}
+
+.dropdown-content a:hover {background-color: #999999;}
+
+.dropdown:hover .dropdown-content {
+    display: block;
+}
+
+h1 {
+	padding-top: 35px; 
+	font-family: Script-Blacksword;
+	font-weight: 100;
+	color: white;
+	font-style: italic;
+	font-size: 58px;
+	line-height: 54px;
+	text-shadow: 2px 5px 0 rgba(0,0,0,0,2);
+	display: inline-block;
+}
+
+div.img {
+    border: 1px solid #ccc;
+}
+
+div.img:hover {
+    border: 1px solid #777;
+}
+
+div.img img {
+    width: 100%;
+    height: auto;
+}
+
+div.desc {
+    padding: 15px;
+    text-align: center;
+	font-family: CaviarDreams;
+}
+
+* {
+    box-sizing: border-box;
+}
+
+.responsive {
+    padding: 6px 6px;
+    float: left;
+    width: 32.99999%;
+}
+
+@media only screen and (max-width: 700px){
+    .responsive {
+        width: 49.99999%;
+        margin: 6px 0;
+    }
+}
+
+@media only screen and (max-width: 500px){
+    .responsive {
+        width: 100%;
+    }
+}
+
+.clearfix:after {
+    content: "";
+    display: table;
+    clear: both;
+}
+
+.blur {
+	-webkit-filter: blur(4px);
+	filter: blur(4px);
+}
+.brightness {
+	-webkit-filter: brightness(0.30);
+	filter: brightness(0.30);
+}
+.contrast {
+	-webkit-filter: contrast(180%);
+	filter: contrast(180%);
+}
+.grayscale {
+	-webkit-filter: grayscale(100%);
+	filter: grayscale(100%);
+}
+.huerotate {
+	-webkit-filter: hue-rotate(180deg);
+	filter: hue-rotate(180deg);
+}
+.invert {
+	-webkit-filter: invert(100%);
+	filter: invert(100%);
+}
+.opacity {
+	-webkit-filter: opacity(50%);
+	filter: opacity(50%);
+}
+.saturate {
+	-webkit-filter: saturate(7); 
+	filter: saturate(7);
+}
+.sepia {
+	-webkit-filter: sepia(100%);
+	filter: sepia(100%);
+}
+.shadow {
+	-webkit-filter: drop-shadow(8px 8px 10px green);
+	filter: drop-shadow(8px 8px 10px green);
+}
+
+img.solid {border: 7px solid red;}
+img.dashed {border: 7px dashed red;}
+img.dotted {border: 7px dotted red;}
+img.double {border: 7px double red;}
+img.groove {border: 7px groove red;}
+img.ridge {border: 7px ridge red;}
+img.inset {border: 7px inset red;}
+img.outset {border: 7px outset red;}

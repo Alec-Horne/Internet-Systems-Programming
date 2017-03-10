@@ -1,0 +1,300 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8"/>
+  <title>Programming Assignment 3</title>
+  <link rel="stylesheet" href="style.css">
+  <style>
+	@font-face {
+      font-family: Infinity;
+      src: url(Infinity.ttf);
+	}
+	@font-face {
+      font-family: Nord;
+      src: url(Nord.ttf);
+	}
+	@font-face {
+      font-family: MacNord;
+      src: url(MacNord.ttf);
+	}
+  </style>
+</head>
+
+<body onload="CheckFonts()">
+  <div class="titleDiv">
+	<h1 style="font-size: 48px">Programming Assignment 3</h1>
+	<p style="font-size: 20px; margin: 20px">This webpage is an example of a simple "web page generator".  It features
+		22 different elements in HTML, CSS, and Javascript that can be added to a new page that will be opened when the
+		"show window" button is clicked.  All of the features that are available are listed at the bottom of the page in
+		a table with descriptions explaining each of them.</p>
+  </div>
+  <hr style="width: 300%; margin-left: -150%; color: black">
+  <p style="font-family: infinity; font-size:20px; margin:50px;">Directions: First click the show window button. The window must be open 
+	  before elements can be added. After the window is open any element that is added will be dynamically placed on the new window.
+	  No need to click show window afterwards. You can watch the elements being placed. Certain browsers wont display certain elements.</p>
+  <h2 style="font-size: 38px; font-family: infinity">Elements List</h2>
+  <div class="bodyDiv" id="bodyDiv">
+	<table style="width:100%">
+	  <tr>
+        <th>Item</th>
+        <th>Description</th> 
+        <th>Action</th>
+	  </tr>
+      <tr>
+        <td>Show Window</td>
+        <td>Opens the design window</td>
+        <td style="padding: 5px; text-align: right;">
+		  <input type="button" value="Open Window" class="button" onclick="openWindow()">
+		</td>
+      </tr>
+	  <tr>
+		<td>Close Window</td>
+		<td>Closes the design window</td>
+		<td style="padding: 5px; text-align: right;">
+		  <input type="button" value="Close Window" class="button" onclick="closeWindow()">
+		</td>
+	  </tr>
+      <tr>
+	  <tr>
+		<td>Change Title</td>
+		<td>Changes the new window webpage title at the top of the browser</td>
+		<td style="padding: 5px; text-align: right;">
+		  <input type="text" class="textbox" id="titleTB">
+		  <input type="button" value="Change Title" class="button" onclick="addTitle(document.getElementById('titleTB'))">
+		</td>
+	  </tr>
+      <tr>
+		<td>Add Line Break</td>
+		<td>Adds a line break on the window to add elements to seperate lines</td>
+		<td style="padding: 5px; text-align: right;">
+		  <input type="button" value="Add Line Break" class="button" onclick="addLineBreak()">
+		</td>
+      </tr>
+	  <tr>
+		<td>Add Navigation Bar at Top</td>
+		<td>Adds a fixed navigation bar to the top of the window that follows the page</td>
+		<td style="padding: 5px; text-align: right;">
+		  <input type="button" value="Add Nav Bar" class="button" onclick="addFixedNavBar()">
+		</td>
+      </tr>
+	  <tr>
+		<td>Add Header</td>
+		<td>Adds a large header to the window</td>
+		<td style="padding: 5px; text-align: right;">
+		  <input type="text" class="textbox" id="headerTB">
+		  <input type="button" value="Add Header" class="button" onclick="addHeader(document.getElementById('headerTB'))">
+		</td>
+      </tr>
+      <tr>
+		<td>Add Button</td>
+		<td>Adds a plain button to the window, text value changes on click</td>
+		<td style="padding: 5px; text-align: right;">
+		  <input type="button" value="Add Button" class="button" onclick="addButton()">
+		</td>
+      </tr>
+      <tr>
+		<td>Add Textbox</td>
+		<td>Adds a plain textbox to the window, has no function</td>
+		<td style="padding: 5px; text-align: right;">
+		  <input type="button" value="Add Textbox" class="button" onclick="addTextbox()">
+		</td>
+      </tr>
+      <tr>
+		<td>Add Horizontal Rule</td>
+		<td>Adds a full-width horizontal rule to the page</td>
+		<td style="padding: 5px; text-align: right;">
+		  <input type="button" value="Add Horizontal Rule" class="button" onclick="addHorizontalRule()">
+		</td>
+      </tr>
+	  <tr>
+		<td>Add Animated Image</td>
+		<td>Adds an animated image that moves on mouse click</td>
+		<td style="padding: 5px; text-align: right;">
+		  <input type="button" value="Add Animated Image" class="button" onclick="addAnimatedImage()">
+		</td>
+	  </tr>
+	  <tr>
+		<td>Add Date and Time</td>
+		<td>Adds the current date and time and autoupdates every second</td>
+		<td style="padding: 5px; text-align: right;">
+		  <input type="button" value="Add Date and Time" class="button" onclick="addDateAndTime()">
+		</td>
+	  </tr>
+	  <tr>
+		<td>Add Text Color Picker</td>
+		<td>Adds a color picker to the page that will change the color of the text below it</td>
+		<td style="padding: 5px; text-align: right;">
+		  <input type="button" value="Add Color Picker" class="button" onclick="addTextColorPicker()">
+		</td>
+	  </tr>
+	  <tr>
+		<td>Add Circle to Square Animation</td>
+		<td>Adds an animation that features a circle that grows into a square and loops back</td>
+		<td style="padding: 5px; text-align: right;">
+		  <input type="button" value="Add Animated Shape" class="button" onclick="addCircleToSquareAnimation()">
+		</td>
+	  </tr>
+	  <tr>
+		<td>Add Animated Text</td>
+		<td>Adds animated scrolling text to the window</td>
+		<td style="padding: 5px; text-align: right;">
+		  <input type="text" class="textbox" id="animatedTB">
+		  <input type="button" value="Add Animated Text" class="button" onclick="addAnimatedText(document.getElementById('animatedTB'))">
+		</td>
+	  </tr>
+	  <tr>
+		<td>Add Color Flashing Text</td>
+		<td>Adds color flashing text to the window</td>
+		<td style="padding: 5px; text-align: right;">
+		  <input type="text" class="textbox" id="flashingTB">
+		  <input type="button" value="Add Flashing Text" class="button" onclick="addFlashingText(document.getElementById('flashingTB'))">
+		</td>
+	  </tr>
+	  <tr>
+		<td>Add Background Changer</td>
+		<td>Adds a background color changer to the window</td>
+		<td style="padding: 5px; text-align: right;">
+		  <input type="button" value="Add Background Changer" class="button" onclick="addBackgroundColorChanger()">
+		</td>
+	  </tr>
+	  <tr>
+		<td>Add embedded Video</td>
+		<td>Adds an embedded video from youtube in a small frame to the window</td>
+		<td style="padding: 5px; text-align: right;">
+		  <input type="text" class="textbox" id="youtubeTB">
+		  <input type="button" value="Add Youtube Video" class="button" onclick="addYoutubeVideo(document.getElementById('youtubeTB'))">
+		</td>
+	  </tr>
+	  <tr>
+		<td>Add Image</td>
+		<td>Adds the image in the textbox or a random image from a set group of images to the window</td>
+		<td style="padding: 5px; text-align: right;">
+		  <input type="text" class="textbox" id="imageTB">
+		  <input type="button" value="Add Image" class="button" onclick="addRandomImage(document.getElementById('imageTB'))">
+		</td>
+	  </tr>
+	  <tr>
+		<td>Add Canvas With a Drawn Line</td>
+		<td>Adds a canvas to the window and then draws a diagonal line through it</td>
+		<td style="padding: 5px; text-align: right;">
+		  <input type="button" value="Add Drawing Canvas" class="button" onclick="addCanvas()">
+		</td>
+	  </tr>
+	  <tr>
+		<td>Add Addition Calculator</td>
+		<td>Adds a simple addition calculator that takes two integers from user and displays the result of the addition</td>
+		<td style="padding: 5px; text-align: right;">
+		  <input type="button" value="Add Addition Calc" class="button" onclick="addAdditionCalculator()">
+		</td>
+	  </tr>
+	  <tr>
+		<td>Add Responsive Slider Bar</td>
+		<td>Adds a responsive range slider bar to the window</td>
+		<td style="padding: 5px; text-align: right;">
+		  <input type="button" value="Add Slider Bar" class="button" onclick="addRangeSlider()">
+		</td>
+	  </tr>
+	  <tr>
+		<td>Add Animated Progress Bar</td>
+		<td>Adds an animated progress bar that loops infinitely from 0% to 100%</td>
+		<td style="padding: 5px; text-align: right;">
+		  <input type="button" value="Add Progress Bar" class="button" onclick="addProgressBar()">
+		</td>
+	  </tr>
+	</table>
+	<br>
+	
+	<hr style="width: 300%; margin-left: -150%; color: black">
+	<h2 style="font-size: 38px; font-family: infinity">Feature Descriptions</h2>
+	
+	<table style="width:100%">
+	  <tr>
+        <th>HTML</th>
+        <th>CSS</th> 
+        <th>Javascript</th>
+	  </tr>
+      <tr>
+        <td>Adding a line break</td>
+        <td>Sizing and coloring every element available</td>
+        <td>All the functions to add elements to the new window</td>
+      </tr>
+      <tr>
+		<td>Adding a header</td>
+		<td>Animating a circle that changes to a square and loops</td>
+		<td>Opening a new window</td>
+      </tr>
+      <tr>
+		<td>Adding a button</td>
+		<td>Styling text</td>
+		<td>Closing the new window</td>
+	  </tr>
+	  <tr>
+		<td>Adding a textbox</td>
+		<td>Styling slider bar</td>
+		<td>Event-driven programming</td>
+	  </tr>
+	  <tr>
+		<td>Adding a horizontal rule</td>
+		<td>Animating color changing text</td>
+		<td>Displaying auto-updating time and date</td>
+	  </tr>
+	  <tr>
+		<td>Adding an image</td>
+        <td>Styling texbox and button</td>
+		<td>Changing text color with color picker</td>
+	  </tr>
+	  <tr>
+		<td>Adding a color picker</td>
+		<td>Styling navigation bar with mouse hover and background colors</td>
+		<td>Changing background color with color picker</td>
+	  </tr>
+	  <tr>
+		<td>Adding scrolling text using marquee tags</td>
+		<td>Animating a loading progress bar and looping it infinitely</td>
+		<td>Drawing lines on canvas</td>
+	  </tr>
+	  <tr>
+		<td>Adding a canvas</td>
+		<td>...</td>
+		<td>Slider bar output</td>
+	  </tr>
+	  <tr>
+		<td>Adding textboxes and a button for calculator</td>
+		<td>...</td>
+		<td>Adding numbers from user input and displaying result</td>
+	  </tr>
+	  <tr>
+		<td>Adding a slider bar</td>
+		<td>...</td>
+		<td>Changing the title of the page dynamically</td>
+	  </tr>
+	  <tr>
+		<td>Embedding a youtube video from the source</td>
+		<td>...</td>
+		<td>...</td>
+	  </tr>
+	  <tr>
+		<td>Using the span and div elements</td>
+		<td>...</td>
+		<td>...</td>
+	  </tr>
+	  <tr>
+		<td>Adding a navigation bar with menu items</td>
+		<td>...</td>
+		<td>...</td>
+	  </tr>
+	</table>
+	<br>
+  </div>
+  
+  <script type="text/javascript" src="window.js"></script>
+  <script type="text/javascript" src="utilities.js"></script>
+  <script type="text/javascript">
+  function CheckFonts() {
+	  if (navigator.appVersion.indexOf("Mac") != -1) {
+		document.getElementById("bodyDiv").style.fontFamily = "MacNord";
+	  }
+  }
+  </script>
+</body>
+</html>

@@ -1,0 +1,64 @@
+body {
+	background-color: #FFF;
+	margin: 30px;
+    margin-top: 10px;
+	background: url("background.png");
+	overflow-x: hidden;
+	text-align: center;
+}
+.leftdiv {
+	width: 250px;
+	height: 100%;
+	font-family: Nord;
+	text-align: left;
+}
+.titleDiv {
+	width: 100%; 
+	height: 25vh;
+	font-family: Infinity;
+	flex-grow: 1;
+}
+.factorialdiv {
+	text-align: center;
+	flex-grow: 1;
+	overflow: hidden;
+	font-family: Nord;
+}
+#thing {
+    position: absolute;
+    left: 47%;
+    top: 31%;
+	height: 70px;
+	width: 70px;
+    transition: left .7s ease-in, top .7s ease-in;
+	z-index: -9;
+}
+.textbox {
+	border: 2px solid #b3b3b3;
+	background: #dddddd;
+	width: 160px;
+	height: 20px;
+	font-family: Trebuchet MS, Arial, Sans-serif;
+	border-radius: 10px;
+	-moz-border-radius: 25px;
+	-moz-box-shadow: 1px 1px 1px #ccc;
+	-webkit-box-shadow: 1px 1px 1px 1px #ccc;
+	box-shadow: 1px 2px 2px 2px #ccc;
+	margin: 3px 0px;
+	margin-bottom: 10px;
+	padding-left: 7px;
+	z-index: 99;
+}
+.button {
+	border-radius: 10px;
+	background: #e6e6e6;
+	color: #0d0d0d;
+	font-family: Nord;
+	font-size: 18px;
+	height: 35px;
+	width: 170px;
+	margin-top: 5px;
+	text-align: center;
+	border: 2px solid #b3b3b3;
+	box-shadow: 1px 2px 2px 2px #ccc;
+}

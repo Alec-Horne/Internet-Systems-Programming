@@ -1,0 +1,137 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <meta charset="utf-8"/>
+  <title>Programming Assignment 2</title>
+  <link rel="stylesheet" href="style.css">
+  <style>
+	@font-face {
+      font-family: Infinity;
+      src: url(Infinity.ttf);
+	}
+	@font-face {
+      font-family: Nord;
+      src: url(Nord.ttf);
+	}
+	@font-face {
+      font-family: MacNord;
+      src: url(MacNord.ttf);
+	}
+  </style>
+</head>
+
+<body onload="CheckFonts(); UpdateClock()">
+  <img id="thing" src="http://users.softpress.com/tim/red-ball.png">
+  <div class="titleDiv">
+	<h1 style="font-size: 48px">Programming Assignment 2</h1>
+	<p style="font-size: 18px; margin: 20px">This webpage features examples of Javascript, EDP, DOM, and Dynamic HTML. At the top center of the page there is a 
+	   red ball that when you click anywhwere on the page it will animate its move slowly to that position. On the left side there is a email validator.
+	   One of the validators checks when you submit a button and returns the wrong characters as striked, the other checks as you type. There is also
+	   a factorial calculator in the middle. Lastly the project information is on the lower left part of the page.</p>
+  </div>
+  <hr style="width: 300%; margin-left: -150%">
+  <div style="display: flex">
+    <div class="leftdiv" id="leftdiv">
+      <form style="display: inline-block; font-size: 18px; font-family: Nord" name="myForm" id="myForm" method=POST>
+        <br>Email Validator:<br>
+        <input type="text" name="email" class="textbox">
+        <br>
+        <input type="button" value="Submit" class="button" onclick="ValidateEmail(document.myForm.email)">
+		<p id="emailNotifier" style="height: 30px; overflow: hidden; font-size: 16px;"></p>
+		Auto Email Validator:<br>
+        <input type="text" name="autoEmail" id="autoEmail" class="textbox" onkeyup="ValidateEmailAuto(document.myForm.autoEmail)">
+        <br>
+		<hr style="width: 348px; margin-left: -100px; margin-top: 15%">
+      </form>
+      <hr style="width: 1px; height: 100vh; float: right; margin-top: -10px; margin-bottom: -15px">
+      <br><br>
+      <p style="font-size: 16px; margin-left: -14px"><u>PROJECT INFORMATION</u><br><br><u>Author:</u>  
+	    Alec J. Horne <br><br><u>UAID:</u> ajh158 
+	    <br><br><u>Time Finished:</u> 10/7/2016 7:00 PM </p>
+	  <p id="currentTime" style="margin-left: -14px; padding-top: 6px"><u>Current Time:</u></p>
+    </div>
+    <div id="factorialdiv" class="factorialdiv">
+	  <p id="factorial" style="padding-top: 20px; font-size: 30px; margin-left: -25%; margin-bottom: -1px;"><u>Factorial Calculator</u></p>
+        <form style="display: inline-block; font-size: 20px; font-family: Nord; margin-left: -25%" name="myForm2" id="myForm2" method=POST>
+           To use the calculator press the "start calculator" button and enter<br>the number you would like to compute.
+		   For every power<br>of 10, the font size increases and the color changes.<br><br>
+          <input type="button" value="Start Calculator" class="button" onclick="DisplayFactorial()">
+        </form>
+		<p id="factorialInfo" style="font-size: 22px; margin-left: -25%"></p>
+		<p id="factorialAnswer" style="font-size: 22px; margin-left: -25%; margin-top: -2%"></p>
+	</div>
+  </div>
+  <script type="text/javascript" src="mouseClickAnimation.js"></script>
+  <script type="text/javascript" src="emailValidator.js"></script>
+  <script type="text/javascript">
+  var myVar = setInterval(function(){ UpdateClock() }, 1000);
+	
+  function CheckFonts() {
+	  if (navigator.appVersion.indexOf("Mac") != -1) {
+		document.getElementById("myForm").style.fontFamily = "MacNord";
+		document.getElementById("leftdiv").style.fontFamily = "MacNord";
+		document.getElementById("factorialdiv").style.fontFamily = "MacNord"
+	  }
+  }
+  
+  function PrintDateAndTime() {
+    var currentdate = new Date();
+	var amOrPM;
+	if (currentdate.getHours() < 12)
+	  amOrPM = " AM";
+	else 
+	  amOrPM = " PM";
+	var hours = currentdate.getHours() % 12 || 12;
+    var datetime = (currentdate.getMonth() + 1) + "/" + currentdate.getDate() + "/" 
+      + currentdate.getFullYear() + " " + hours + ":" + currentdate.getMinutes() + ":";
+	if (currentdate.getSeconds() < 10)
+	  datetime += "0" + currentdate.getSeconds() + amOrPM;
+	else
+	  datetime += currentdate.getSeconds() + amOrPM;
+	return datetime;
+  }
+  
+  function UpdateClock() {
+    var clock = PrintDateAndTime();
+	var text = "<u>Current Time:</u> ";
+	document.getElementById('currentTime').innerHTML = text + clock;
+  }
+  
+  function DisplayFactorial() {
+	var colors = ["black", "aqua", "brown", "crimson", "chartreuse", "darkgray", "olive", 
+				  "darkmagenta", "mistyrose", "navy", "lightsalmon", "lime", "magenta",
+				  "darkorchid", "orange", "gold", "hotpink", "greenyellow", "dimgray",
+				  "indigo", "skyblue", "springgreen", "plum", "khaki", "turquoise", "red",
+				  "teal", "lightcyan", "green", "fuchsia", "moccasin", "orangered", "maroon",
+				  "bisque", "lime", "chocolate", "mediumseagreen", "mediumorchid", "olivedrab"];
+	var size, color;
+	var num = parseInt(prompt("Please enter a number: ", "8"), 10);
+	if (num < 0)
+	  alert("Cannot compute the factorial for a negative number. Please try again.")
+	else {
+	  num = Factorial(num);
+	  var size = 22;
+	  for(var x = 2; Math.pow(10, x) <= num && size <= 96; x++) {
+	    size += 2;
+		if (size == 76)
+		  document.getElementById("factorialAnswer").style.marginLeft = "0%";
+		color = colors[(size - 22) / 2];
+	  }
+	  document.getElementById('factorialInfo').innerHTML = "Your answer is: ";
+	  document.getElementById('factorialAnswer').style.fontSize = size + "px";
+	  document.getElementById('factorialAnswer').style.color = color;
+	  document.getElementById('factorialAnswer').innerHTML = num;
+	}
+  }
+  
+  function Factorial(num) {
+    var result = 1;
+    for (var i = 2; i <= num; i++) {
+        result *= i;
+    }
+    return result;
+  }
+  </script>
+</body>
+</html>

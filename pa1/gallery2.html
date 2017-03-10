@@ -1,0 +1,175 @@
+<!DOCTYPE html>
+<html style="min-height: 100%; margin: 0; background-image: linear-gradient(#444, white);">
+<head>
+<title>Project 1 Alec Horne</title>
+<link rel="stylesheet" href="style.css" type="text/css">
+<link rel="stylesheet" href="slideshow.css" type="text/css">
+<style>
+@font-face {
+   font-family: Script-Blacksword;
+   src: url(Blacksword.otf);
+}
+@font-face {
+   font-family: CaviarDreams;
+   src: url(CaviarDreams_Bold.ttf);
+}
+
+.textbox {
+	border: 2px solid #b3b3b3;
+	background: #dddddd;
+	width: 150px;
+	height: 20px;
+	font-family: Trebuchet MS, Arial, Sans-serif;
+	border-radius: 10px;
+	-moz-border-radius: 25px;
+	-moz-box-shadow: 1px 1px 1px #ccc;
+	-webkit-box-shadow: 1px 1px 1px 1px #ccc;
+	box-shadow: 1px 2px 2px 2px #ccc;
+	margin: 3px 0px;
+	margin-bottom: 10px;
+}
+
+.button2 {
+	border-radius: 10px;
+	background: #e6e6e6;
+	color: #0d0d0d;
+	font-family: CaviarDreams;
+	font-size: 15px;
+	height: 27px;
+	width: 110px;
+	margin-top: 5px;
+	text-align: center;
+	border: 2px solid #b3b3b3;
+	box-shadow: 1px 2px 2px 2px #ccc;
+}
+
+.button:hover {
+    background-color: #999999;
+}
+
+.button2:hover {
+    background-color: #999999;
+}
+
+.search {
+	font-family: CaviarDreams;  
+	display: block; 
+	float: right;
+	padding-right: 20px;
+}
+
+.leftdiv{
+	width: 178px;
+	height: 700px;
+	padding-left: 1%;
+	float: left;
+}
+
+p {
+	font-family: CaviarDreams;
+	padding-left: 4%;
+	padding-right: 4%;
+}
+
+</style>
+</head>
+
+<body style="min-height: 100%; margin: 0;">
+
+<div>
+<nav>
+<ul>
+  <li><a href="pa1.html">Home</a></li>
+  <li class="dropdown">
+	<a class="dropbtn">Gallery</a>
+	<div class="dropdown-content">
+      <a href="gallery1.html">Gallery 1</a>
+      <a class="active" href="gallery2.html">Gallery 2</a>
+    </div>
+  </li>
+  <li><a href="videos.html">Videos</a></li>
+  <li><a href="projectinfo.html">Project Info</a></li>
+  <form class="search">
+  <input type="text" name="Login" class="textbox">
+  <input type="submit" value="Search" class="button2">
+  </form>
+</ul>
+</nav>
+</div>
+<div style="width: 100%; left: 0; text-align: center">
+<h1>Photography Gallery</h1>
+<p>This gallery demonstrates the use of a responsive image gallery (images move depending on screen size) and also
+	various image borders in CSS3. If you resize the window, the images will change location to accommodate the new 
+	screen size. Image borders work with all types of internet browsers.</p>
+</div>
+<hr>
+<br>
+
+<div class="responsive">
+  <div class="img">
+    <img src="http://freecodesource.com/myspace-graphics/images_db/515/Spring_Daisys_1600.jpg" alt="Spring Daisys" width="600" height="400">
+    <div class="desc">Original image</div>
+  </div>
+</div>
+
+<div class="responsive">
+  <div class="img">
+    <img src="http://freecodesource.com/myspace-graphics/images_db/515/Spring_Daisys_1600.jpg" class= "solid" alt="Spring Daisys" width="600" height="400">
+    <div class="desc">Solid border</div>
+  </div>
+</div>
+
+<div class="responsive">
+  <div class="img">
+    <img src="http://freecodesource.com/myspace-graphics/images_db/515/Spring_Daisys_1600.jpg" class= "dashed" alt="Spring Daisys" width="600" height="400">
+    <div class="desc">Dashed border</div>
+  </div>
+</div>
+
+
+<div class="responsive">
+  <div class="img">
+    <img src="http://freecodesource.com/myspace-graphics/images_db/515/Spring_Daisys_1600.jpg" class= "dotted" alt="Spring Daisys" width="600" height="400">
+    <div class="desc">Dotted border</div>
+  </div>
+</div>
+
+<div class="responsive">
+  <div class="img">
+    <img src="http://freecodesource.com/myspace-graphics/images_db/515/Spring_Daisys_1600.jpg" class= "double" alt="Spring Daisys" width="600" height="400">
+    <div class="desc">Double border</div>
+  </div>
+</div>
+
+<div class="responsive">
+  <div class="img">
+    <img src="http://freecodesource.com/myspace-graphics/images_db/515/Spring_Daisys_1600.jpg" class= "groove" alt="Spring Daisys" width="600" height="400">
+    <div class="desc">Groove border</div>
+  </div>
+</div>
+
+<div class="responsive">
+  <div class="img">
+    <img src="http://freecodesource.com/myspace-graphics/images_db/515/Spring_Daisys_1600.jpg" class= "ridge" alt="Spring Daisys" width="600" height="400">
+    <div class="desc">Ridge border</div>
+  </div>
+</div>
+
+<div class="responsive">
+  <div class="img">
+    <img src="http://freecodesource.com/myspace-graphics/images_db/515/Spring_Daisys_1600.jpg" class= "inset" alt="Spring Daisys" width="600" height="400">
+    <div class="desc">Inset border</div>
+  </div>
+</div>
+
+<div class="responsive">
+  <div class="img">
+    <img src="http://freecodesource.com/myspace-graphics/images_db/515/Spring_Daisys_1600.jpg" class= "outset" alt="Spring Daisys" width="600" height="400">
+    <div class="desc">Outset border</div>
+  </div>
+</div>
+
+<div class="clearfix"></div>
+
+</body>
+</html> 
